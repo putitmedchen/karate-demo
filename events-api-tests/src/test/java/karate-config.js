@@ -18,7 +18,7 @@ function fn() {
     driverClassName: 'org.h2.Driver'
   }
 
-  var authDetails = karate.call('classpath:eventsapi/events/authentication.feature')
+  var authDetails = karate.call('classpath:eventsapi/events/authentication.feature', {apiUrl:config.baseUrl, username: 'johns@pocisoft.com', password: 'password'})
 
   karate.configure('headers', {Authorization: 'Bearer ' + authDetails.access_token})
 

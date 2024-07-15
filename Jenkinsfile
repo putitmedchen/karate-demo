@@ -37,5 +37,10 @@ pipeline{
             // Stop the API process
             bat 'taskkill /f /im java.exe /fi "WINDOWTITLE eq events-api-0.0.1-SNAPSHOT.jar"'
         }
+            success {
+                dir("${WORKSPACE}/events-api-tests") {
+                    junit 'target/karate-reports/*.xml'
+                }
+            }
     }
 }

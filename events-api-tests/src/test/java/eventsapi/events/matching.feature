@@ -1,7 +1,7 @@
 Feature: Match Testing
 
  Background:
-  * url 'http://localhost:8080/api'
+  * url baseUrl
   * def authFeature = call read('authentication.feature')
   * def access_token = authFeature.access_token
   

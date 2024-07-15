@@ -9,8 +9,14 @@ function fn() {
     myVarName: 'someValue'
   }
   if (env == 'dev') {
-    // customize
-    // e.g. config.foo = 'bar';
+  config.baseUrl= 'http://localhost:8080/api'
+
+  config.dbConfig= {
+    username: 'sa',
+    password: '',
+    url: 'jdbc:h2:tcp://localhost/~/test',
+    driverClassName: 'org.h2.Driver'
+  }
   } else if (env == 'e2e') {
     // customize
   }

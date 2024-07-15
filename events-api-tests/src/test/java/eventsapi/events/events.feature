@@ -2,7 +2,7 @@ Feature: Test Event
 
 
  Background:
-  * url 'http://localhost:8080/api'
+  * url baseUrl
   * def authFeature = call read('authentication.feature')
   * def access_token = authFeature.access_token
   * def tokenDetails = authFeature.tokenDetails
@@ -17,7 +17,7 @@ Feature: Test Event
   
   * match karate.distinct(userIds) contains only tokenDetails.uid
   
-  * def config = { username: 'sa', password: '', url: 'jdbc:h2:tcp://localhost/~/test ', driverClassName: 'org.h2.Driver' }
+  * def config = karate.get('dbConfig')
   * def DbUtils = Java.type('eventsapi.DBUtility')
   * def db = new DbUtils(config)
   * def eventsFromDB = db.readRows('select * from events where UserId = ' + tokenDetails.uid)

@@ -1,6 +1,6 @@
 Feature: Test Public Events
 	Background:
-    * url 'http://localhost:8080/api'
+    * url baseUrl
 	
 	Scenario: Get all public events and get the first event by id
     Given path 'publicevents'

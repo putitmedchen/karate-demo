@@ -1,13 +1,9 @@
 Feature: Match Testing
 
  Background:
-  * url baseUrl
-  * def authFeature = call read('authentication.feature')
-  * def access_token = authFeature.access_token
-  
+
   Scenario: Subscriptions
   Given path 'subscriptions'
-  And header Authorization = 'Bearer ' + access_token
   When method get
   Then status 200
   

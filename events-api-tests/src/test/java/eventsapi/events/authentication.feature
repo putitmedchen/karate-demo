@@ -2,7 +2,6 @@
 Feature: Get authentication token
 
  Background:
-  * url baseUrl
   * def parseJwtPayload =
   """
   function(token) {

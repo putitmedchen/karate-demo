@@ -1,7 +1,6 @@
 Feature: Test Public Events
 	Background:
-    * url baseUrl
-	
+
 	Scenario: Get all public events and get the first event by id
     Given path 'publicevents'
     When method get

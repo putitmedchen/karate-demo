@@ -17,6 +17,15 @@ function fn() {
     url: 'jdbc:h2:tcp://localhost/~/test',
     driverClassName: 'org.h2.Driver'
   }
+
+  var authDetails = karate.call('classpath:eventsapi/events/authentication.feature')
+
+  karate.configure('headers', {Authorization: 'Bearer ' + authDetails.access_token})
+
+  karate.configure('url', config.baseUrl)
+
+  config.authDetails=authDetails
+
   } else if (env == 'e2e') {
     // customize
   }
